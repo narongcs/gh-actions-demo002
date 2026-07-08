@@ -17,7 +17,7 @@ jobs:
       - name: Echo Environment Variable
         run: |
           echo "This job trigger by ${{ github.event_name}}";
-          echo "This respository is  ${{ github.respository}}";
+          echo "This repository is  ${{ github.repository}}";
           echo "This branch is ${{ github.ref_name }}"    
         
   hello-job:
