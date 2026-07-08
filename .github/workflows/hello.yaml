@@ -6,6 +6,10 @@ on:
       - ".github/workflows/*.yaml"
   pull_request:
     branches: [main]
+    
+  workflow_dispatch:
+    # inputs:      
+    #   types: ['after_render_cms'] 
 jobs:
   hello-job:
     runs-on: ubuntu-latest
