@@ -1,7 +1,10 @@
-on: push
+name: Hello World
+on: 
+  push:
+    branches: [main]
 jobs:
   hello-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a one-line script
+      - name: Run a one-line
         run: echo "Hello Github Actions!"
