@@ -1,4 +1,6 @@
 name: Hello World
+env:
+  APP_NAME: "Demo_version"
 on: 
   push:
     branches: [main]
@@ -12,13 +14,20 @@ on:
 
 jobs:
   echo-vars:
+    env:
+      PACKAGE_PATH: '.'
     runs-on: ubuntu-latest
     steps:
       - name: Echo Environment Variable
+        env:
+          APP_VERSION: "2.34.5"
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
         run: |
           echo "This job trigger by ${{ github.event_name}}";
           echo "This repository is  ${{ github.repository}}";
-          echo "This branch is ${{ github.ref_name }}"|    
+          echo "This branch is ${{ github.ref_name }}"
+          echo "This is a ${{env.APP_NAME }} version ${{ env.APP_VERSION }}"
+          echo "$RUNNER_CONTEXT"
         
   hello-job:
     runs-on: ubuntu-latest
