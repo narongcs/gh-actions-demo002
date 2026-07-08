@@ -29,6 +29,7 @@ jobs:
           echo "This is a ${{env.APP_NAME }} version ${{ env.APP_VERSION }}"
           echo "$RUNNER_CONTEXT"
           echo "The Database password is ${{ secrets.DB_PASSWORD }}"
+          ecno "github.event_name"
         
   hello-job:
     if: ${{github.event_name != 'on-demand-test'}}
