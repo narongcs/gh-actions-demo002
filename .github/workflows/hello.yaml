@@ -3,21 +3,22 @@ on:
   push:
     branches: [main]
     paths-ignore:
-      - ".github/workflows/*.yaml"
+      - ".github/workflows/*"
   pull_request:
     branches: [main]
     
   repository_dispatch:
     types: ["on-demand-test"]
-    # inputs:      
-    #   types: ['after_render_cms'] 
+
 jobs:
   hello-job:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line
         run: echo "Hello Github Actions!"
-
+      - name: Retrieve client payload
+        run: echo "Client send status = ${{ github.event.client_payload.status }}"
+      
   Seccond-job:
     runs-on: windows-latest
     needs: hello-job
