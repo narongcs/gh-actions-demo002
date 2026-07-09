@@ -2,6 +2,7 @@ on:
   workflow_dispatch:
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
         users: actions/checkout@v7.0.0
