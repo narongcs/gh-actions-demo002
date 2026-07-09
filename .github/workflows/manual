@@ -1,0 +1,6 @@
+on:
+  workflow_dispatch:
+job:
+  build:
+    steps:
+      - name: Checkout source code
